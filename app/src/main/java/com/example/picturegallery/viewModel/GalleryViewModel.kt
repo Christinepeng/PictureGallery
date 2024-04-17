@@ -33,8 +33,8 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     private fun getUrl(): String {
-        return "https://pixabay.com/api/?key=43332681-4938561e3a0f131a6bc11f317&q=${keyWords.random()}"
+        return "https://pixabay.com/api/?key=43332681-4938561e3a0f131a6bc11f317&q=${keyWords.random()}&per_page=100"
     }
 
-    private val keyWords = arrayOf("cat", "dog", "snoopy", "beauty", "phone", "computer", "flower", "animal")
+    private val keyWords = arrayOf("cat", "dog", "snoopy", "rabbit", "bear", "cute", "miffy")
 }

@@ -1,11 +1,13 @@
 package com.example.picturegallery.view
 
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,15 +22,19 @@ import io.supercharge.shimmerlayout.ShimmerLayout
 
 class GalleryAdapter : ListAdapter<PhotoItem, MyViewHolder>(DIFFCALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        Log.e("bear", "GalleryAdapter onCreateViewHolder()")
 
         val holder = MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.gallery_cell, parent, false))
-        holder.itemView.setOnClickListener {  }
+        holder.itemView.setOnClickListener {
+            Bundle().apply {
+                putParcelable("PHOTO", getItem(holder.adapterPosition))
+                holder.itemView.findNavController().navigate(R.id.action_galleryFragment_to_photoFragment, this)
+            }
+
+        }
         return holder
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Log.e("bear", "GalleryAdapter onBindViewHolder()")
 
         val shimmerLayout: ShimmerLayout = holder.itemView.findViewById(R.id.shimmerLayoutCell)
         shimmerLayout.apply {

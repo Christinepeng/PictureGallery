@@ -10,6 +10,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.example.picturegallery.model.PhotoItem
 import com.example.picturegallery.model.Pixabay
+import com.example.picturegallery.model.VolleySingleton
 import com.google.gson.Gson
 
 class GalleryViewModel(application: Application) : AndroidViewModel(application) {
@@ -28,6 +29,7 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
                 Log.e("bear", it.toString())
             }
         )
+        VolleySingleton.getInstance(getApplication()).requestQueue.add(stringRequest)
     }
 
     private fun getUrl(): String {

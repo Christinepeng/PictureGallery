@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/galleryFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="git config pull.rebase false" />
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.example.picturegallery.view.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery">
+        <action
+            android:id="@+id/action_galleryFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.picturegallery.view.PhotoFragment"
+        android:label="Photo"
+        tools:layout="@layout/fragment_photo" />
 </navigation>

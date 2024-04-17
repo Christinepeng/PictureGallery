@@ -49,6 +49,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.volley)
     implementation (libs.glide)
     implementation(libs.androidx.swiperefreshlayout)
@@ -58,4 +59,6 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.shimmerlayout)
     implementation(libs.library)
+
+    implementation (libs.androidx.fragment.ktx)
 }
